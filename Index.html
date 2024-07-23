@@ -1,0 +1,108 @@
+Para añadir un botón que permita descargar la propuesta como PDF, puedes utilizar una librería JavaScript como `html2pdf.js`. Esta librería te permite convertir contenido HTML a PDF directamente en el navegador. Aquí te dejo el código actualizado con la funcionalidad añadida:
+
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propuesta de Desarrollo de Aplicación Web</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .content {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        h1 {
+            text-align: center;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+        }
+        .methods p {
+            font-size: 1.2em;
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #666;
+        }
+        #download-btn {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5" id="proposal-content">
+        <h1>Propuesta de Desarrollo de Aplicación Web</h1>
+        <div class="content">
+            <p><strong>Cliente:</strong> Física Médica y Protección Radiológica SAS<br>
+            <strong>NIT:</strong> 901352641-1<br>
+            <strong>Ubicación:</strong> Bucaramanga</p>
+        </div>
+        <div class="content">
+            <h2>Propuesta de Servicio</h2>
+            <p>Nos complace presentar nuestra propuesta para el desarrollo de una aplicación web a medida para su empresa, Física Médica y Protección Radiológica SAS. Este proyecto se centrará en la creación de una plataforma que permitirá a los operadores gestionar informes de certificación de calidad y manejo de equipos de rayos X de manera eficiente y segura. A continuación, se detallan los aspectos específicos del proyecto:</p>
+            
+            <h3>Funcionalidades Principales</h3>
+            <ul class="list-group">
+                <li class="list-group-item"><strong>Autenticación de Usuarios:</strong> Implementación de un sistema de usuarios con contraseña para garantizar la seguridad y privacidad de los datos. Función de recuperación de contraseña.</li>
+                <li class="list-group-item"><strong>Gestión de Informes:</strong> Creación de nuevos informes de certificación en calidad de manejo de equipos de rayos X. Recopilación y almacenamiento de datos en formatos de texto e imagen. Capacidad para guardar informes y continuar su edición más tarde.</li>
+                <li class="list-group-item"><strong>Front-End Adaptable:</strong> Diseño responsivo que se adapta a varios dispositivos (PC, tabletas, móviles). Interfaz de usuario intuitiva y fácil de usar.</li>
+                <li class="list-group-item"><strong>Exportación de Informes:</strong> Exportación de resultados de informes organizados en formato PDF. Integración de inteligencia artificial de OpenAI para mejorar la precisión y eficiencia en la generación de informes.</li>
+                <li class="list-group-item"><strong>Alojamiento y Dominio:</strong> Uso de servidores FTP AWS para alojar el proyecto durante 2 años. Registro de dominio para el acceso a la aplicación web.</li>
+            </ul>
+        </div>
+        <div class="content">
+            <h3>Tiempo de Entrega</h3>
+            <p>El tiempo estimado para la entrega completa del proyecto es de <strong>30 días</strong> a partir del inicio oficial del desarrollo.</p>
+            
+            <h3>Valor Total</h3>
+            <p>El costo total del proyecto es de <strong>$5.000.000 COP</strong>. Este monto incluye todos los servicios mencionados anteriormente.</p>
+            <p><strong>Pago Inicial:</strong> 50% ($2.500.000 COP)</p>
+            <p>El pago inicial asegura la programación de la primera reunión y el inicio del desarrollo del proyecto.</p>
+            
+            <h3>Información de Contacto</h3>
+            <p><strong>Helmut Yesid Lizarazo León</strong><br>
+            C.C. 1.095.816.237</p>
+            
+            <h3>Esperamos poder colaborar con ustedes en este proyecto y estamos a su disposición para cualquier consulta o información adicional que puedan necesitar.</h3>
+            <p>Atentamente,<br>Arquitecto de Proyecto Web</p>
+        </div>
+        <div class="content methods">
+            <h3>Métodos de Pago:</h3>
+            <p><strong>Nequi:</strong> 3163714916 🇨🇴<br>
+            <strong>Zelle:</strong> +1 703 656 0664 🇺🇸</p>
+            <p>Una vez recibido el soporte del primer pago, agendaremos la primera reunión para iniciar el desarrollo del proyecto.</p>
+        </div>
+        <div class="footer">
+            <p>Por favor, no dude en ponerse en contacto si tiene alguna pregunta o requiere más detalles.</p>
+            <p>Cordialmente,<br>Arquitecto de Proyecto Web</p>
+        </div>
+    </div>
+    <div class="container text-center">
+        <button id="download-btn" class="btn btn-primary">Descargar Propuesta como PDF</button>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+    <script>
+        document.getElementById('download-btn').addEventListener('click', () => {
+            const element = document.getElementById('proposal-content');
+            html2pdf().from(element).save('Propuesta_Desarrollo_Aplicacion_Web.pdf');
+        });
+    </script>
+</body>
+</html>
+```
+
+Este código utiliza Bootstrap para un diseño más limpio y añade un botón que permite descargar la propuesta como un archivo PDF usando `html2pdf.js`. Solo tienes que copiar y pegar este código en tu proyecto web y funcionará como esperas.
